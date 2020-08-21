@@ -19,6 +19,9 @@ def save_data(data):
 def home():
     return render_template("./index.html")
 
+@app.route('/admin')
+def admin():
+    return redirect("https://www.pythonanywhere.com")
 
 @app.route('/<page_name>')
 def page(page_name):
@@ -29,7 +32,7 @@ def page(page_name):
 def submit_form():
     if request.method == "POST":
 
-        try:    
+        try:
             data = request.form.to_dict()
             save_data(data)
             print(data)
